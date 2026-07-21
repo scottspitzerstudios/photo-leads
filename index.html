@@ -46,6 +46,30 @@
   .notes-cell { font-size: 11px; color: #555; font-style: italic; }
   .revenue { display: block; font-size: 11px; color: #8bc45a; font-style: normal; font-weight: 600; margin-top: 3px; }
   .footer { margin-top: 1.5rem; font-size: 11px; color: #333; }
+
+  @media (max-width: 700px) {
+    .wrap { padding: 0.75rem 0.4rem; }
+    .stats { grid-template-columns: repeat(2, 1fr) !important; gap: 8px; }
+    table thead { display: none; }
+    table, tbody, tr, td { display: block; width: 100%; }
+    tr { border-bottom: 1px solid #2a2a2e; padding: 10px 12px; }
+    tr:hover td { background: none; }
+    td { border-bottom: none; padding: 3px 0; }
+    td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 9px;
+      font-weight: 600;
+      color: #444;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 6px;
+    }
+    td:first-child::before { display: none; }
+    td:first-child { padding-bottom: 4px; }
+    .event-name { font-size: 14px; }
+    textarea { min-width: 0; }
+  }
 </style>
 </head>
 <body>
@@ -79,22 +103,22 @@
         
         
         <tr>
-          <td><span class="tag tag-kop">KoP</span><span class="event-name">Pretty Girl Conference 2026</span><span class="added">Added Jul 21</span></td>
-          <td>Aug 14, 2026</td>
-          <td>Pretty Girl Conference</td>
-          <td>Via eventbrite.com</td>
-          <td><a class="ext" href="https://www.eventbrite.com/e/pretty-girl-conference-2026-tickets-1875570224029" target="_blank">↗</a></td>
-          <td><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
-          <td class="notes-cell">Crowne Plaza King of Prussia. Women's empowerment conference.</td>
+          <td data-label="Event"><span class="tag tag-kop">KoP</span><span class="event-name">Pretty Girl Conference 2026</span><span class="added">Added Jul 21</span></td>
+          <td data-label="Date">Aug 14, 2026</td>
+          <td data-label="Contact">Pretty Girl Conference</td>
+          <td data-label="Email">Via eventbrite.com</td>
+          <td data-label="Site"><a class="ext" href="https://www.eventbrite.com/e/pretty-girl-conference-2026-tickets-1875570224029" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
+          <td data-label="Notes" class="notes-cell">Crowne Plaza King of Prussia. Women's empowerment conference.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-oaks">Oaks</span><span class="event-name">Oddities & Curiosities Expo</span><span class="added">Added Jul 13</span></td>
-          <td>Aug 15–16, 2026</td>
-          <td>Oddities & Curiosities Expo</td>
-          <td>press@oddities.com</td>
-          <td><a class="ext" href="https://odditiesandcuriositiesexpo.com/" target="_blank">↗</a></td>
-          <td><span class="badge badge-outreach">✉️ Outreach Jul 18</span></td>
-          <td class="notes-cell">Halls A, B & D. World's largest traveling oddities event. Taxidermy, dark art, sideshow performers, taxidermy workshops. Visually wild.</td>
+          <td data-label="Event"><span class="tag tag-oaks">Oaks</span><span class="event-name">Oddities & Curiosities Expo</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Aug 15–16, 2026</td>
+          <td data-label="Contact">Oddities & Curiosities Expo</td>
+          <td data-label="Email">press@oddities.com</td>
+          <td data-label="Site"><a class="ext" href="https://odditiesandcuriositiesexpo.com/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 18</span></td>
+          <td data-label="Notes" class="notes-cell">Halls A, B & D. World's largest traveling oddities event. Taxidermy, dark art, sideshow performers, taxidermy workshops. Visually wild.</td>
         </tr>
         
         
@@ -103,221 +127,223 @@
         
         
         <tr>
-          <td><span class="tag tag-oaks">Oaks</span><span class="event-name">Montgomery County Black Author & Business Expo</span><span class="added">Added Jul 13</span></td>
-          <td>Aug 22, 2026</td>
-          <td>Ashley Faison, Montgomery County PA</td>
-          <td>Ashley.Faison@MontgomeryCountyPA.gov</td>
-          <td><a class="ext" href="https://phillyexpocenter.com/events/montgomery-county-black-author-and-business-expo/" target="_blank">↗</a></td>
-          <td><span class="badge badge-dead">❌ Dead Lead</span></td>
-          <td class="notes-cell">Hall D. 10am–3pm. Montgomery County PA-sponsored event celebrating Black authors and businesses. Responded — no photography needed.</td>
+          <td data-label="Event"><span class="tag tag-oaks">Oaks</span><span class="event-name">Montgomery County Black Author & Business Expo</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Aug 22, 2026</td>
+          <td data-label="Contact">Ashley Faison, Montgomery County PA</td>
+          <td data-label="Email">Ashley.Faison@MontgomeryCountyPA.gov</td>
+          <td data-label="Site"><a class="ext" href="https://phillyexpocenter.com/events/montgomery-county-black-author-and-business-expo/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-dead">❌ Dead Lead</span></td>
+          <td data-label="Notes" class="notes-cell">Hall D. 10am–3pm. Montgomery County PA-sponsored event celebrating Black authors and businesses. Responded — no photography needed.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-eb">EB</span><span class="event-name">Strategic Starts™ Back to School Leadership Summit</span><span class="added">Added Jul 13</span></td>
-          <td>Aug 27, 2026</td>
-          <td>Kimreneé Patterson, Khanae Institute</td>
-          <td>kpatterson@khanaeinstitute.com</td>
-          <td><a class="ext" href="https://www.eventbrite.com/e/strategic-startstm-back-to-school-leadership-summit-2026-tickets-1991576002435" target="_blank">↗</a></td>
-          <td><span class="badge badge-outreach">✉️ Outreach Jul 18</span></td>
-          <td class="notes-cell">Friends Center, Philadelphia.</td>
+          <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">Strategic Starts™ Back to School Leadership Summit</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Aug 27, 2026</td>
+          <td data-label="Contact">Kimreneé Patterson, Khanae Institute</td>
+          <td data-label="Email">kpatterson@khanaeinstitute.com</td>
+          <td data-label="Site"><a class="ext" href="https://www.eventbrite.com/e/strategic-startstm-back-to-school-leadership-summit-2026-tickets-1991576002435" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 18</span></td>
+          <td data-label="Notes" class="notes-cell">Friends Center, Philadelphia.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-oaks">Oaks</span><span class="event-name">Philadelphia Watch Trade Show</span><span class="added">Added Jul 13</span></td>
-          <td>Aug 28–29, 2026</td>
-          <td>Philadelphia Watch Show</td>
-          <td>philadelphiawatchshow@gmail.com</td>
-          <td><a class="ext" href="https://www.philadelphiawatchshow.com/" target="_blank">↗</a></td>
-          <td><span class="badge badge-outreach">✉️ Outreach Jul 18</span></td>
-          <td class="notes-cell">Hall D. 100+ watch dealers. Vintage Rolex, Omega, Patek Philippe, indie microbrands. Buy/sell/trade marketplace.</td>
+          <td data-label="Event"><span class="tag tag-oaks">Oaks</span><span class="event-name">Philadelphia Watch Trade Show</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Aug 28–29, 2026</td>
+          <td data-label="Contact">Philadelphia Watch Show</td>
+          <td data-label="Email">philadelphiawatchshow@gmail.com</td>
+          <td data-label="Site"><a class="ext" href="https://www.philadelphiawatchshow.com/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 18</span></td>
+          <td data-label="Notes" class="notes-cell">Hall D. 100+ watch dealers. Vintage Rolex, Omega, Patek Philippe, indie microbrands. Buy/sell/trade marketplace.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-ac">AC</span><span class="event-name">Arett Sales Open House 2026</span><span class="added">Added Jul 18</span></td>
-          <td>Sep 16–17, 2026</td>
-          <td>Arett Sales</td>
-          <td>Via arettopenhouse.com/contact · (800) 257-8220</td>
-          <td><a class="ext" href="https://arettopenhouse.com/" target="_blank">↗</a></td>
-          <td><span class="badge badge-booked">🎯 Booked</span></td>
-          <td class="notes-cell">Atlantic City Convention Center. Arett's 75th anniversary. Lawn & garden trade show, 2 days. 8am–6pm Wed, 8am–4pm Thu.<span class="revenue">💰 $1,000</span></td>
+          <td data-label="Event"><span class="tag tag-ac">AC</span><span class="event-name">Arett Sales Open House 2026</span><span class="added">Added Jul 18</span></td>
+          <td data-label="Date">Sep 16–17, 2026</td>
+          <td data-label="Contact">Arett Sales</td>
+          <td data-label="Email">Via arettopenhouse.com/contact · (800) 257-8220</td>
+          <td data-label="Site"><a class="ext" href="https://arettopenhouse.com/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-booked">🎯 Booked</span></td>
+          <td data-label="Notes" class="notes-cell">Atlantic City Convention Center. Arett's 75th anniversary. Lawn & garden trade show, 2 days. 8am–6pm Wed, 8am–4pm Thu.<span class="revenue">💰 $1,000</span></td>
         </tr>
         <tr>
-          <td><span class="tag tag-pennmed">PennMed</span><span class="event-name">Michael P. Cancro Symposium</span><span class="added">Added Jul 13</span></td>
-          <td>Sep 10, 2026</td>
-          <td>Penn Pathology & Lab Medicine</td>
-          <td>cancro@mail.med.upenn.edu</td>
-          <td><a class="ext" href="https://events.med.upenn.edu/event/796064-michael-p-cancro-symposium" target="_blank">↗</a></td>
-          <td><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
-          <td class="notes-cell">Full day tribute symposium for retiring Penn immunology professor. 49 years at Penn. Intimate, warm event — strong photography candidate.</td>
+          <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">Michael P. Cancro Symposium</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Sep 10, 2026</td>
+          <td data-label="Contact">Penn Pathology & Lab Medicine</td>
+          <td data-label="Email">cancro@mail.med.upenn.edu</td>
+          <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/796064-michael-p-cancro-symposium" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
+          <td data-label="Notes" class="notes-cell">Full day tribute symposium for retiring Penn immunology professor. 49 years at Penn. Intimate, warm event — strong photography candidate.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-eb">EB</span><span class="event-name">TECHSPO Philadelphia 2026</span><span class="added">Added Jul 20</span></td>
-          <td>Oct 8–9, 2026</td>
-          <td>TECHSPO LLC</td>
-          <td>info@techspo.co</td>
-          <td><a class="ext" href="https://techspophiladelphia.com/" target="_blank">↗</a></td>
-          <td><span class="badge badge-outreach2">✉️ Outreach x2 Jul 21</span></td>
-          <td class="notes-cell">Live! Casino & Hotel Philadelphia, 1200 Filbert St. Tech expo — Internet, Mobile, AdTech, MarTech, SaaS. Ph: (800) 805-5385.</td>
+          <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">TECHSPO Philadelphia 2026</span><span class="added">Added Jul 20</span></td>
+          <td data-label="Date">Oct 8–9, 2026</td>
+          <td data-label="Contact">TECHSPO LLC</td>
+          <td data-label="Email">info@techspo.co</td>
+          <td data-label="Site"><a class="ext" href="https://techspophiladelphia.com/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-outreach2">✉️ Outreach x2 Jul 21</span></td>
+          <td data-label="Notes" class="notes-cell">Live! Casino & Hotel Philadelphia, 1200 Filbert St. Tech expo — Internet, Mobile, AdTech, MarTech, SaaS. Ph: (800) 805-5385.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-oaks">Oaks</span><span class="event-name">Retro Con 2026</span><span class="added">Added Jul 13</span></td>
-          <td>Sep 12–13, 2026</td>
-          <td>Screamers Retro Flashbacks</td>
-          <td>screamers85@gmail.com</td>
-          <td><a class="ext" href="https://retrocons.com/" target="_blank">↗</a></td>
-          <td><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
-          <td class="notes-cell">Hall A, 67,500 sq ft. 315+ vendor tables. Transformers, Star Wars, TMNT, GI Joe. Celebrity guests, cosplay, arcade games. Sat 10–5:30pm / Sun 9–4pm.</td>
+          <td data-label="Event"><span class="tag tag-oaks">Oaks</span><span class="event-name">Retro Con 2026</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Sep 12–13, 2026</td>
+          <td data-label="Contact">Screamers Retro Flashbacks</td>
+          <td data-label="Email">screamers85@gmail.com</td>
+          <td data-label="Site"><a class="ext" href="https://retrocons.com/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
+          <td data-label="Notes" class="notes-cell">Hall A, 67,500 sq ft. 315+ vendor tables. Transformers, Star Wars, TMNT, GI Joe. Celebrity guests, cosplay, arcade games. Sat 10–5:30pm / Sun 9–4pm.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-eb">EB</span><span class="event-name">2026 BD NOW Innovation Summit</span><span class="added">Added Jul 13</span></td>
-          <td>Sep 14–16, 2026</td>
-          <td>Julie, JRF Consulting Services</td>
-          <td>julie@jrfconsultingservices.com</td>
-          <td><a class="ext" href="https://www.eventbrite.com/e/2026-bd-now-innovation-summit-registration-1988202066903" target="_blank">↗</a></td>
-          <td><span class="badge badge-outreach">✉️ Outreach Jul 20</span></td>
-          <td class="notes-cell">Hyatt Centric Rittenhouse Square. Credit union BD, ~$995/ticket. Intimate event.</td>
+          <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">2026 BD NOW Innovation Summit</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Sep 14–16, 2026</td>
+          <td data-label="Contact">Julie, JRF Consulting Services</td>
+          <td data-label="Email">julie@jrfconsultingservices.com</td>
+          <td data-label="Site"><a class="ext" href="https://www.eventbrite.com/e/2026-bd-now-innovation-summit-registration-1988202066903" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 20</span></td>
+          <td data-label="Notes" class="notes-cell">Hyatt Centric Rittenhouse Square. Credit union BD, ~$995/ticket. Intimate event.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-pennmed">PennMed</span><span class="event-name">High-Throughput Screening Core Symposium</span><span class="added">Added Jul 13</span></td>
-          <td>Sep 17, 2026</td>
-          <td>Penn Medicine HTS Core</td>
-          <td>Via events.med.upenn.edu</td>
-          <td><a class="ext" href="https://events.med.upenn.edu/event/797255-high-throughput-screening-core-symposium" target="_blank">↗</a></td>
-          <td><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
-          <td class="notes-cell">8:00am start. Penn core facility drug discovery symposium.</td>
+          <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">High-Throughput Screening Core Symposium</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Sep 17, 2026</td>
+          <td data-label="Contact">Penn Medicine HTS Core</td>
+          <td data-label="Email">Via events.med.upenn.edu</td>
+          <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/797255-high-throughput-screening-core-symposium" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
+          <td data-label="Notes" class="notes-cell">8:00am start. Penn core facility drug discovery symposium.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-pennmed">PennMed</span><span class="event-name">New Horizons in Nephrology: Glomerular Disease 2026</span><span class="added">Added Jul 13</span></td>
-          <td>Sep 18, 2026</td>
-          <td>Penn Medicine Nephrology</td>
-          <td>Via events.med.upenn.edu</td>
-          <td><a class="ext" href="https://events.med.upenn.edu/event/796029-new-horizons-in-nephrology-glomerular-disease-2026" target="_blank">↗</a></td>
-          <td><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
-          <td class="notes-cell">7:00am start. Full day CME nephrology conference at Penn.</td>
+          <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">New Horizons in Nephrology: Glomerular Disease 2026</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Sep 18, 2026</td>
+          <td data-label="Contact">Penn Medicine Nephrology</td>
+          <td data-label="Email">Via events.med.upenn.edu</td>
+          <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/796029-new-horizons-in-nephrology-glomerular-disease-2026" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
+          <td data-label="Notes" class="notes-cell">7:00am start. Full day CME nephrology conference at Penn.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-kop">KoP</span><span class="event-name">Kremer Eye Center's Back to School XVI CE!</span><span class="added">Added Jul 21</span></td>
-          <td>Sep 23, 2026</td>
-          <td>Kremer Eye Center</td>
-          <td>Via eventbrite.com · (610) 337-1580</td>
-          <td><a class="ext" href="https://www.eventbrite.com/e/kremer-eye-centers-back-to-school-xvi-ce-tickets-1992431944581" target="_blank">↗</a></td>
-          <td><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
-          <td class="notes-cell">King of Prussia. 16th annual CE event for optometrists — 150+ attendees expected, vendor showcase.</td>
+          <td data-label="Event"><span class="tag tag-kop">KoP</span><span class="event-name">Kremer Eye Center's Back to School XVI CE!</span><span class="added">Added Jul 21</span></td>
+          <td data-label="Date">Sep 23, 2026</td>
+          <td data-label="Contact">Kremer Eye Center</td>
+          <td data-label="Email">Via eventbrite.com · (610) 337-1580</td>
+          <td data-label="Site"><a class="ext" href="https://www.eventbrite.com/e/kremer-eye-centers-back-to-school-xvi-ce-tickets-1992431944581" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
+          <td data-label="Notes" class="notes-cell">King of Prussia. 16th annual CE event for optometrists — 150+ attendees expected, vendor showcase.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">NRPA Annual Conference</span><span class="attendance">👥 8,500</span><span class="added">Added Jul 13</span></td>
-          <td>Sep 24 – Oct 2, 2026</td>
-          <td>Amanda Hersey, NRPA</td>
-          <td>ahersey@nrpa.org</td>
-          <td><a class="ext" href="https://conference.nrpa.org/" target="_blank">↗</a></td>
-          <td><span class="badge badge-booked">🎯 Booked</span></td>
-          <td class="notes-cell"><span class="revenue">💰 $3,125</span></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">NRPA Annual Conference</span><span class="attendance">👥 8,500</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Sep 24 – Oct 2, 2026</td>
+          <td data-label="Contact">Amanda Hersey, NRPA</td>
+          <td data-label="Email">ahersey@nrpa.org</td>
+          <td data-label="Site"><a class="ext" href="https://conference.nrpa.org/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-booked">🎯 Booked</span></td>
+          <td data-label="Notes" class="notes-cell"><span class="revenue">💰 $3,125</span></td>
         </tr>
         <tr>
-          <td><span class="tag tag-oaks">Oaks</span><span class="event-name">Animate! Philadelphia 2026</span><span class="added">Added Jul 13</span></td>
-          <td>Oct 2–4, 2026</td>
-          <td>GalaxyCon LLC</td>
-          <td>animate@galaxycon.com</td>
-          <td><a class="ext" href="https://galaxycon.com/pages/animate-philadelphia" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">3-day anime/animation convention. Cosplay contest with $4,000+ in prizes, panels, gaming, celebrity guests. Ph: (954) 231-0574.</td>
+          <td data-label="Event"><span class="tag tag-oaks">Oaks</span><span class="event-name">Animate! Philadelphia 2026</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Oct 2–4, 2026</td>
+          <td data-label="Contact">GalaxyCon LLC</td>
+          <td data-label="Email">animate@galaxycon.com</td>
+          <td data-label="Site"><a class="ext" href="https://galaxycon.com/pages/animate-philadelphia" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">3-day anime/animation convention. Cosplay contest with $4,000+ in prizes, panels, gaming, celebrity guests. Ph: (954) 231-0574.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-eb">EB</span><span class="event-name">Get It Out The Mud Networking Conference</span><span class="added">Added Jul 13</span></td>
-          <td>Oct 3, 2026</td>
-          <td>Via Eventbrite</td>
-          <td>Via eventbrite.com</td>
-          <td><a class="ext" href="https://www.eventbrite.com/e/get-it-out-the-mud-networking-conference-tickets-1982442072605" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">4200 E City Ave. City limits, but on the edge.</td>
-        </tr>
-        <tr>
-        <tr>
-          <td><span class="tag tag-pennmed">PennMed</span><span class="event-name">Penn Neuromuscular Symposium 2026</span><span class="added">Added Jul 20</span></td>
-          <td>TBD, 2026</td>
-          <td>Penn Neurology, Neuromuscular Division</td>
-          <td>Via events.med.upenn.edu</td>
-          <td><a class="ext" href="https://events.med.upenn.edu/event/788463-penn-neuromuscular-symposium-2026" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">Annual CME symposium on neuromuscular disorders. Date TBD — check back for confirmation.</td>
-        </tr>
-                  <td><span class="tag tag-pennmed">PennMed</span><span class="event-name">Symposium for Pathways to Excellence in Medicine</span><span class="added">Added Jul 13</span></td>
-          <td>Oct 3, 2026</td>
-          <td>Julie Premo, Alliance of Minority Physicians</td>
-          <td>premoj@upenn.edu</td>
-          <td><a class="ext" href="https://events.med.upenn.edu/event/796511-symposium-for-pathways-to-excellence-in-medicine" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">9:00am, full day. Med students from Penn, Temple, Jefferson, Drexel, PCOM, Cooper + Penn/CHOP faculty. Research poster forum + workshops. Diverse, community-focused event.</td>
+          <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">Get It Out The Mud Networking Conference</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Oct 3, 2026</td>
+          <td data-label="Contact">Via Eventbrite</td>
+          <td data-label="Email">Via eventbrite.com</td>
+          <td data-label="Site"><a class="ext" href="https://www.eventbrite.com/e/get-it-out-the-mud-networking-conference-tickets-1982442072605" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">4200 E City Ave. City limits, but on the edge.</td>
         </tr>
         <tr>
         <tr>
-          <td><span class="tag tag-eb">EB</span><span class="event-name">Philly Influencer Mixer Conference 2026</span><span class="added">Added Jul 20</span></td>
-          <td>Oct 10, 2026</td>
-          <td>Philly Influencer Mixer</td>
-          <td>info@phillyinfluencermixer.com</td>
-          <td><a class="ext" href="https://phillyinfluencermixer.com/" target="_blank">↗</a></td>
-          <td><span class="badge badge-outreach">✉️ Outreach Jul 20</span></td>
-          <td class="notes-cell">Vault XXVII, Philadelphia. Social media/creator conference. Oct 10, 9am.</td>
-        </tr>
-                  <td><span class="tag tag-pennmed">PennMed</span><span class="event-name">IRM Fall Symposium: Tipping Points — Regeneration, Repair & Fibrosis</span><span class="added">Added Jul 13</span></td>
-          <td>Oct 14, 2026</td>
-          <td>Jay Read / Diona Cashioli, IRM</td>
-          <td>James.Read@pennmedicine.upenn.edu / Diona.Cashioli@pennmedicine.upenn.edu</td>
-          <td><a class="ext" href="https://events.med.upenn.edu/event/796110-2026-irm-fall-symposium-tipping-points" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">11:00am, Smilow Center for Translational Research. Penn, CHOP & Wistar researchers. Stem cell/regenerative medicine.</td>
+          <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">Penn Neuromuscular Symposium 2026</span><span class="added">Added Jul 20</span></td>
+          <td data-label="Date">TBD, 2026</td>
+          <td data-label="Contact">Penn Neurology, Neuromuscular Division</td>
+          <td data-label="Email">Via events.med.upenn.edu</td>
+          <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/788463-penn-neuromuscular-symposium-2026" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">Annual CME symposium on neuromuscular disorders. Date TBD — check back for confirmation.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">LeadingAge Annual Meeting</span><span class="attendance">👥 8,000</span><span class="added">Added Jul 13</span></td>
-          <td>Oct 23 – 29, 2026</td>
-          <td>Sharon Sullivan, LeadingAge</td>
-          <td>ssullivan@leadingage.org</td>
-          <td><a class="ext" href="https://annualmeeting.leadingage.org/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell"></td>
-        </tr>
-        <tr>
-          <td><span class="tag tag-eb">EB</span><span class="event-name">2026 MidAtlantic Bioinformatics Conference</span><span class="added">Added Jul 13</span></td>
-          <td>Oct 30, 2026</td>
-          <td>Via Eventbrite</td>
-          <td>Via eventbrite.com</td>
-          <td><a class="ext" href="https://www.eventbrite.com/e/2026-midatlantic-bioinformatics-conference-tickets-1988002689560" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">Smilow Center for Translational Research, Penn.</td>
+          <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">Symposium for Pathways to Excellence in Medicine</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Oct 3, 2026</td>
+          <td data-label="Contact">Julie Premo, Alliance of Minority Physicians</td>
+          <td data-label="Email">premoj@upenn.edu</td>
+          <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/796511-symposium-for-pathways-to-excellence-in-medicine" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">9:00am, full day. Med students from Penn, Temple, Jefferson, Drexel, PCOM, Cooper + Penn/CHOP faculty. Research poster forum + workshops. Diverse, community-focused event.</td>
         </tr>
         <tr>
         <tr>
-          <td><span class="tag tag-kop">KoP</span><span class="event-name">2026 CAST-USA Annual Conference</span><span class="added">Added Jul 21</span></td>
-          <td>Oct 31, 2026</td>
-          <td>CAST-USA</td>
-          <td>Via cast-usa.us</td>
-          <td><a class="ext" href="https://www.cast-usa.us/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">Crowne Plaza Philadelphia - King of Prussia, 260 Mall Blvd. Global scientific & tech summit for Chinese-American professionals. Keynotes, award ceremony, gala.</td>
+          <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">Philly Influencer Mixer Conference 2026</span><span class="added">Added Jul 20</span></td>
+          <td data-label="Date">Oct 10, 2026</td>
+          <td data-label="Contact">Philly Influencer Mixer</td>
+          <td data-label="Email">info@phillyinfluencermixer.com</td>
+          <td data-label="Site"><a class="ext" href="https://phillyinfluencermixer.com/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 20</span></td>
+          <td data-label="Notes" class="notes-cell">Vault XXVII, Philadelphia. Social media/creator conference. Oct 10, 9am.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-oaks">Oaks</span><span class="event-name">BrickFair Oaks PA 2026</span><span class="added">Added Jul 13</span></td>
-          <td>Nov 7–8, 2026</td>
-          <td>Todd Webb, BrickFair</td>
-          <td>Via brickfair.com/contact</td>
-          <td><a class="ext" href="https://www.brickfair.com/tickets/?eventid=125" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">Hall A. North America's premier LEGO fan expo. Elaborate builds, 100,000+ sq ft of displays. Tickets on sale Aug 18.</td>
+          <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">IRM Fall Symposium: Tipping Points — Regeneration, Repair & Fibrosis</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Oct 14, 2026</td>
+          <td data-label="Contact">Jay Read / Diona Cashioli, IRM</td>
+          <td data-label="Email">James.Read@pennmedicine.upenn.edu / Diona.Cashioli@pennmedicine.upenn.edu</td>
+          <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/796110-2026-irm-fall-symposium-tipping-points" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">11:00am, Smilow Center for Translational Research. Penn, CHOP & Wistar researchers. Stem cell/regenerative medicine.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-eb">EB</span><span class="event-name">Brand Reputation Summit EAST 2026</span><span class="added">Added Jul 13</span></td>
-          <td>Nov 11–12, 2026</td>
-          <td>Curtis & Coulter / Mark Coulter Media</td>
-          <td>Via curtiscoulter.com</td>
-          <td><a class="ext" href="https://curtiscoulter.com/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">Hilton Philadelphia at Penn's Landing. PR/Marketing/Comms professionals.</td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">LeadingAge Annual Meeting</span><span class="attendance">👥 8,000</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Oct 23 – 29, 2026</td>
+          <td data-label="Contact">Sharon Sullivan, LeadingAge</td>
+          <td data-label="Email">ssullivan@leadingage.org</td>
+          <td data-label="Site"><a class="ext" href="https://annualmeeting.leadingage.org/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">NCTE Annual Convention</span><span class="attendance">👥 7,000</span><span class="added">Added Jul 13</span></td>
-          <td>Nov 16 – 25, 2026</td>
-          <td>Matt Burruss, NCTE</td>
-          <td>mburruss@ncte.org</td>
-          <td><a class="ext" href="https://ncte.org/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">2026 MidAtlantic Bioinformatics Conference</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Oct 30, 2026</td>
+          <td data-label="Contact">Via Eventbrite</td>
+          <td data-label="Email">Via eventbrite.com</td>
+          <td data-label="Site"><a class="ext" href="https://www.eventbrite.com/e/2026-midatlantic-bioinformatics-conference-tickets-1988002689560" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">Smilow Center for Translational Research, Penn.</td>
+        </tr>
+        <tr>
+        <tr>
+          <td data-label="Event"><span class="tag tag-kop">KoP</span><span class="event-name">2026 CAST-USA Annual Conference</span><span class="added">Added Jul 21</span></td>
+          <td data-label="Date">Oct 31, 2026</td>
+          <td data-label="Contact">CAST-USA</td>
+          <td data-label="Email">Via cast-usa.us</td>
+          <td data-label="Site"><a class="ext" href="https://www.cast-usa.us/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">Crowne Plaza Philadelphia - King of Prussia, 260 Mall Blvd. Global scientific & tech summit for Chinese-American professionals. Keynotes, award ceremony, gala.</td>
+        </tr>
+        <tr>
+          <td data-label="Event"><span class="tag tag-oaks">Oaks</span><span class="event-name">BrickFair Oaks PA 2026</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Nov 7–8, 2026</td>
+          <td data-label="Contact">Todd Webb, BrickFair</td>
+          <td data-label="Email">Via brickfair.com/contact</td>
+          <td data-label="Site"><a class="ext" href="https://www.brickfair.com/tickets/?eventid=125" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">Hall A. North America's premier LEGO fan expo. Elaborate builds, 100,000+ sq ft of displays. Tickets on sale Aug 18.</td>
+        </tr>
+        <tr>
+          <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">Brand Reputation Summit EAST 2026</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Nov 11–12, 2026</td>
+          <td data-label="Contact">Curtis & Coulter / Mark Coulter Media</td>
+          <td data-label="Email">Via curtiscoulter.com</td>
+          <td data-label="Site"><a class="ext" href="https://curtiscoulter.com/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">Hilton Philadelphia at Penn's Landing. PR/Marketing/Comms professionals.</td>
+        </tr>
+        <tr>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">NCTE Annual Convention</span><span class="attendance">👥 7,000</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Nov 16 – 25, 2026</td>
+          <td data-label="Contact">Matt Burruss, NCTE</td>
+          <td data-label="Email">mburruss@ncte.org</td>
+          <td data-label="Site"><a class="ext" href="https://ncte.org/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
         <th style="width:24%">Event</th>
@@ -345,175 +371,175 @@
       </tr></thead>
       <tbody>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">APTA Combined Sections Meeting</span><span class="attendance">👥 17,500</span><span class="added">Added Jul 13</span></td>
-          <td>Jan 29 – Feb 6, 2027</td>
-          <td>Beth Strelitz, APTA</td>
-          <td>bethstrelitz@apta.org</td>
-          <td><a class="ext" href="https://csm.apta.org/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">APTA Combined Sections Meeting</span><span class="attendance">👥 17,500</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Jan 29 – Feb 6, 2027</td>
+          <td data-label="Contact">Beth Strelitz, APTA</td>
+          <td data-label="Email">bethstrelitz@apta.org</td>
+          <td data-label="Site"><a class="ext" href="https://csm.apta.org/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">Biophysical Society Annual Meeting</span><span class="attendance">👥 6,000</span><span class="added">Added Jul 13</span></td>
-          <td>Feb 17 – 27, 2027</td>
-          <td>Dorothy Chaconas, Biophysical Society</td>
-          <td>dchaconas@biophysics.org</td>
-          <td><a class="ext" href="https://www.biophysics.org/upcoming-annual-meetings" target="_blank">↗</a></td>
-          <td><span class="badge badge-talks">💬 In Talks</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">Biophysical Society Annual Meeting</span><span class="attendance">👥 6,000</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Feb 17 – 27, 2027</td>
+          <td data-label="Contact">Dorothy Chaconas, Biophysical Society</td>
+          <td data-label="Email">dchaconas@biophysics.org</td>
+          <td data-label="Site"><a class="ext" href="https://www.biophysics.org/upcoming-annual-meetings" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-talks">💬 In Talks</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">ASCE Convention</span><span class="attendance">👥 6,500</span><span class="added">Added Jul 13</span></td>
-          <td>Feb 24 – Mar 6, 2027</td>
-          <td>Candice Hoffman, ASCE</td>
-          <td>choffman@asce.org</td>
-          <td><a class="ext" href="https://experience.asce.org/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">ASCE Convention</span><span class="attendance">👥 6,500</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Feb 24 – Mar 6, 2027</td>
+          <td data-label="Contact">Candice Hoffman, ASCE</td>
+          <td data-label="Email">choffman@asce.org</td>
+          <td data-label="Site"><a class="ext" href="https://experience.asce.org/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
-          <td><span class="tag tag-eb">EB</span><span class="event-name">3rd Brand Reputation Summit EAST 2027</span><span class="added">Added Jul 13</span></td>
-          <td>Apr 8–9, 2027</td>
-          <td>Curtis & Coulter / Mark Coulter Media</td>
-          <td>Via curtiscoulter.com</td>
-          <td><a class="ext" href="https://curtiscoulter.com/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">Venue TBA. PR/Marketing/Comms professionals.</td>
+          <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">3rd Brand Reputation Summit EAST 2027</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Apr 8–9, 2027</td>
+          <td data-label="Contact">Curtis & Coulter / Mark Coulter Media</td>
+          <td data-label="Email">Via curtiscoulter.com</td>
+          <td data-label="Site"><a class="ext" href="https://curtiscoulter.com/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">Venue TBA. PR/Marketing/Comms professionals.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-eb">EB</span><span class="event-name">MGP Conference 2027</span><span class="added">Added Jul 13</span></td>
-          <td>Apr 12–14, 2027</td>
-          <td>Ryan Sheaffer, GEI Consultants</td>
-          <td>rsheaffer@geiconsultants.com</td>
-          <td><a class="ext" href="https://mgpconference.com/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">Loews Philadelphia Hotel. Manufactured Gas Plant / environmental industry conference.</td>
+          <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">MGP Conference 2027</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Apr 12–14, 2027</td>
+          <td data-label="Contact">Ryan Sheaffer, GEI Consultants</td>
+          <td data-label="Email">rsheaffer@geiconsultants.com</td>
+          <td data-label="Site"><a class="ext" href="https://mgpconference.com/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">Loews Philadelphia Hotel. Manufactured Gas Plant / environmental industry conference.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-10x">10x</span><span class="event-name">Wills Eye Annual Conference</span><span class="attendance">👥 1,000</span><span class="added">Added Jul 13</span></td>
-          <td>Apr 15–16, 2027</td>
-          <td>Wills Eye Hospital</td>
-          <td>willsconference.org</td>
-          <td><a class="ext" href="https://www.willseye.org/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">Philadelphia Marriott Downtown. Annual ophthalmology CME conference.</td>
+          <td data-label="Event"><span class="tag tag-10x">10x</span><span class="event-name">Wills Eye Annual Conference</span><span class="attendance">👥 1,000</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Apr 15–16, 2027</td>
+          <td data-label="Contact">Wills Eye Hospital</td>
+          <td data-label="Email">willsconference.org</td>
+          <td data-label="Site"><a class="ext" href="https://www.willseye.org/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">Philadelphia Marriott Downtown. Annual ophthalmology CME conference.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-10x">10x</span><span class="event-name">Annual Philadelphia Sleep Conference</span><span class="attendance">👥 200</span><span class="added">Added Jul 13</span></td>
-          <td>Mar 19, 2027</td>
-          <td>Breakaway Media LLC</td>
-          <td>Via philadelphiasleepconference.com</td>
-          <td><a class="ext" href="https://philadelphiasleepconference.com/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">Live! Casino & Hotel Philadelphia. Nation's largest hybrid sleep medicine conference.</td>
+          <td data-label="Event"><span class="tag tag-10x">10x</span><span class="event-name">Annual Philadelphia Sleep Conference</span><span class="attendance">👥 200</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Mar 19, 2027</td>
+          <td data-label="Contact">Breakaway Media LLC</td>
+          <td data-label="Email">Via philadelphiasleepconference.com</td>
+          <td data-label="Site"><a class="ext" href="https://philadelphiasleepconference.com/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">Live! Casino & Hotel Philadelphia. Nation's largest hybrid sleep medicine conference.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-10x">10x</span><span class="event-name">IAMPHENOM</span><span class="attendance">👥 1,500–3,000</span><span class="added">Added Jul 13</span></td>
-          <td>Apr 20–22, 2027</td>
-          <td>Phenom People</td>
-          <td>Via iamphenom.com</td>
-          <td><a class="ext" href="https://www.iamphenom.com/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">Philadelphia Marriott Downtown. HR/AI conference. Party at Reading Terminal Market.</td>
+          <td data-label="Event"><span class="tag tag-10x">10x</span><span class="event-name">IAMPHENOM</span><span class="attendance">👥 1,500–3,000</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Apr 20–22, 2027</td>
+          <td data-label="Contact">Phenom People</td>
+          <td data-label="Email">Via iamphenom.com</td>
+          <td data-label="Site"><a class="ext" href="https://www.iamphenom.com/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">Philadelphia Marriott Downtown. HR/AI conference. Party at Reading Terminal Market.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">AORN Global Surgical Conference & Expo</span><span class="attendance">👥 7,500</span><span class="added">Added Jul 13</span></td>
-          <td>Apr 6 – 14, 2027</td>
-          <td>Emily O'Connell, AORN</td>
-          <td>eoconnell@aorn.org</td>
-          <td><a class="ext" href="https://www.aorn.org/surgical-expo" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">AORN Global Surgical Conference & Expo</span><span class="attendance">👥 7,500</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Apr 6 – 14, 2027</td>
+          <td data-label="Contact">Emily O'Connell, AORN</td>
+          <td data-label="Email">eoconnell@aorn.org</td>
+          <td data-label="Site"><a class="ext" href="https://www.aorn.org/surgical-expo" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">ASGCT Annual Meeting</span><span class="attendance">👥 7,000</span><span class="added">Added Jul 13</span></td>
-          <td>Apr 30 – May 8, 2027</td>
-          <td>Hannah Rice, ASGCT</td>
-          <td>hrice@asgct.org</td>
-          <td><a class="ext" href="https://www.asgct.org/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">ASGCT Annual Meeting</span><span class="attendance">👥 7,000</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Apr 30 – May 8, 2027</td>
+          <td data-label="Contact">Hannah Rice, ASGCT</td>
+          <td data-label="Email">hrice@asgct.org</td>
+          <td data-label="Site"><a class="ext" href="https://www.asgct.org/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">AIA Annual Convention</span><span class="attendance">👥 16,000</span><span class="added">Added Jul 13</span></td>
-          <td>May 14 – 25, 2027</td>
-          <td>Lauren Liles, AIA</td>
-          <td>laurenliles@aia.org</td>
-          <td><a class="ext" href="https://aia.org/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">AIA Annual Convention</span><span class="attendance">👥 16,000</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">May 14 – 25, 2027</td>
+          <td data-label="Contact">Lauren Liles, AIA</td>
+          <td data-label="Email">laurenliles@aia.org</td>
+          <td data-label="Site"><a class="ext" href="https://aia.org/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
-          <td><span class="tag tag-10x">10x</span><span class="event-name">ABA Stonier Graduate School of Banking</span><span class="attendance">👥 500+</span><span class="added">Added Jul 20</span></td>
-          <td>Jun 3–10, 2027</td>
-          <td>Perette Bonner, ABA</td>
-          <td>pbonner@aba.com</td>
-          <td><a class="ext" href="https://www.aba.com/training-events/schools/stonier-graduate-school-of-banking" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell">University of Pennsylvania / Wharton. Week-long executive banking program, 90+ year history. Senior bankers from across US + international. Graduation ceremony potential.</td>
+          <td data-label="Event"><span class="tag tag-10x">10x</span><span class="event-name">ABA Stonier Graduate School of Banking</span><span class="attendance">👥 500+</span><span class="added">Added Jul 20</span></td>
+          <td data-label="Date">Jun 3–10, 2027</td>
+          <td data-label="Contact">Perette Bonner, ABA</td>
+          <td data-label="Email">pbonner@aba.com</td>
+          <td data-label="Site"><a class="ext" href="https://www.aba.com/training-events/schools/stonier-graduate-school-of-banking" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell">University of Pennsylvania / Wharton. Week-long executive banking program, 90+ year history. Senior bankers from across US + international. Graduation ceremony potential.</td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">BIO International Convention</span><span class="attendance">👥 16,000</span><span class="added">Added Jul 13</span></td>
-          <td>Jun 1 – 11, 2027</td>
-          <td>Tonia Fykes, BIO</td>
-          <td>fmadrigal@bio.org</td>
-          <td><a class="ext" href="https://convention.bio.org/" target="_blank">↗</a></td>
-          <td><span class="badge badge-talks">💬 In Talks</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">BIO International Convention</span><span class="attendance">👥 16,000</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Jun 1 – 11, 2027</td>
+          <td data-label="Contact">Tonia Fykes, BIO</td>
+          <td data-label="Email">fmadrigal@bio.org</td>
+          <td data-label="Site"><a class="ext" href="https://convention.bio.org/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-talks">💬 In Talks</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">IACP Annual Conference</span><span class="attendance">👥 9,000</span><span class="added">Added Jul 13</span></td>
-          <td>Oct 5 – 15, 2027</td>
-          <td>Sarah Guy, IACP</td>
-          <td>guy@theiacp.org</td>
-          <td><a class="ext" href="https://www.theiacpconference.org/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">IACP Annual Conference</span><span class="attendance">👥 9,000</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Oct 5 – 15, 2027</td>
+          <td data-label="Contact">Sarah Guy, IACP</td>
+          <td data-label="Email">guy@theiacp.org</td>
+          <td data-label="Site"><a class="ext" href="https://www.theiacpconference.org/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">ULI Fall Meeting</span><span class="attendance">👥 6,500</span><span class="added">Added Jul 13</span></td>
-          <td>Oct 15 – 21, 2027</td>
-          <td>Jessica Klapstein, Maritz</td>
-          <td>jessica.klapstein@maritz.com</td>
-          <td><a class="ext" href="https://fall.uli.org/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">ULI Fall Meeting</span><span class="attendance">👥 6,500</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Oct 15 – 21, 2027</td>
+          <td data-label="Contact">Jessica Klapstein, Maritz</td>
+          <td data-label="Email">jessica.klapstein@maritz.com</td>
+          <td data-label="Site"><a class="ext" href="https://fall.uli.org/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">ASRM Annual Meeting</span><span class="attendance">👥 6,500</span><span class="added">Added Jul 13</span></td>
-          <td>Oct 20 – 28, 2027</td>
-          <td>Lee Pearce, ASRM</td>
-          <td>lpearce@asrm.org</td>
-          <td><a class="ext" href="https://www.asrm.org/news-and-events/asrm-scientific-congress-and-expo/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">ASRM Annual Meeting</span><span class="attendance">👥 6,500</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Oct 20 – 28, 2027</td>
+          <td data-label="Contact">Lee Pearce, ASRM</td>
+          <td data-label="Email">lpearce@asrm.org</td>
+          <td data-label="Site"><a class="ext" href="https://www.asrm.org/news-and-events/asrm-scientific-congress-and-expo/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">APHA Annual Meeting</span><span class="attendance">👥 14,000</span><span class="added">Added Jul 13</span></td>
-          <td>Nov 3 – 11, 2027</td>
-          <td>Jolene McNeil, APHA</td>
-          <td>jolene.mcneil@apha.org</td>
-          <td><a class="ext" href="https://www.apha.org/events-and-meetings/annual" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">APHA Annual Meeting</span><span class="attendance">👥 14,000</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Nov 3 – 11, 2027</td>
+          <td data-label="Contact">Jolene McNeil, APHA</td>
+          <td data-label="Email">jolene.mcneil@apha.org</td>
+          <td data-label="Site"><a class="ext" href="https://www.apha.org/events-and-meetings/annual" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">AASLD — The Liver Meeting</span><span class="attendance">👥 8,500</span><span class="added">Added Jul 13</span></td>
-          <td>Nov 8 – 18, 2027</td>
-          <td>Confidential</td>
-          <td>—</td>
-          <td>—</td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">AASLD — The Liver Meeting</span><span class="attendance">👥 8,500</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Nov 8 – 18, 2027</td>
+          <td data-label="Contact">Confidential</td>
+          <td data-label="Email">—</td>
+          <td data-label="Site">—</td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
         <tr>
-          <td><span class="tag tag-cvb">CVB</span><span class="event-name">ASCB Annual Meeting</span><span class="attendance">👥 9,000</span><span class="added">Added Jul 13</span></td>
-          <td>Nov 30 – Dec 9, 2027</td>
-          <td>Danielle Raiford, ASCB</td>
-          <td>draiford@ascb.org</td>
-          <td><a class="ext" href="https://www.ascb.org/" target="_blank">↗</a></td>
-          <td><span class="badge badge-new">New</span></td>
-          <td class="notes-cell"></td>
+          <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">ASCB Annual Meeting</span><span class="attendance">👥 9,000</span><span class="added">Added Jul 13</span></td>
+          <td data-label="Date">Nov 30 – Dec 9, 2027</td>
+          <td data-label="Contact">Danielle Raiford, ASCB</td>
+          <td data-label="Email">draiford@ascb.org</td>
+          <td data-label="Site"><a class="ext" href="https://www.ascb.org/" target="_blank">↗</a></td>
+          <td data-label="Status"><span class="badge badge-new">New</span></td>
+          <td data-label="Notes" class="notes-cell"></td>
         </tr>
       </tbody>
     </table>
