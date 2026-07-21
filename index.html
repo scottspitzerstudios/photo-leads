@@ -44,17 +44,19 @@
   a.ext { color: #5ba3f5; text-decoration: none; }
   a.ext:hover { text-decoration: underline; }
   .notes-cell { font-size: 11px; color: #555; font-style: italic; }
+  .revenue { display: block; font-size: 11px; color: #8bc45a; font-style: normal; font-weight: 600; margin-top: 3px; }
   .footer { margin-top: 1.5rem; font-size: 11px; color: #333; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="stats">
+  <div class="stats" style="grid-template-columns: repeat(5, 1fr);">
     <div class="stat"><div class="stat-num">45</div><div class="stat-label">Total Leads</div></div>
     <div class="stat"><div class="stat-num">3</div><div class="stat-label">🎯 Booked</div></div>
     <div class="stat"><div class="stat-num">13</div><div class="stat-label">✉️ Outreach Sent</div></div>
     <div class="stat"><div class="stat-num">0</div><div class="stat-label">💬 In Talks</div></div>
+    <div class="stat"><div class="stat-num" style="color:#8bc45a;">$4,125</div><div class="stat-label">💰 Revenue Booked</div></div>
   </div>
 
   <!-- 2026 -->
@@ -134,7 +136,7 @@
           <td>Via arettopenhouse.com/contact · (800) 257-8220</td>
           <td><a class="ext" href="https://arettopenhouse.com/" target="_blank">↗</a></td>
           <td><span class="badge badge-booked">🎯 Booked</span></td>
-          <td class="notes-cell">Atlantic City Convention Center. Arett's 75th anniversary. Lawn & garden trade show, 2 days. 8am–6pm Wed, 8am–4pm Thu.</td>
+          <td class="notes-cell">Atlantic City Convention Center. Arett's 75th anniversary. Lawn & garden trade show, 2 days. 8am–6pm Wed, 8am–4pm Thu.<span class="revenue">💰 $1,000</span></td>
         </tr>
         <tr>
           <td><span class="tag tag-pennmed">PennMed</span><span class="event-name">Michael P. Cancro Symposium</span><span class="added">Added Jul 13</span></td>
@@ -206,7 +208,7 @@
           <td>ahersey@nrpa.org</td>
           <td><a class="ext" href="https://conference.nrpa.org/" target="_blank">↗</a></td>
           <td><span class="badge badge-booked">🎯 Booked</span></td>
-          <td class="notes-cell"></td>
+          <td class="notes-cell"><span class="revenue">💰 $3,125</span></td>
         </tr>
         <tr>
           <td><span class="tag tag-oaks">Oaks</span><span class="event-name">Animate! Philadelphia 2026</span><span class="added">Added Jul 13</span></td>
