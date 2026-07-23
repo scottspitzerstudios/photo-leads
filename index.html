@@ -50,6 +50,14 @@
   .search-input::placeholder { color: #555; }
   .search-input:focus { outline: none; border-color: #5ba3f5; }
   .row-hidden { display: none !important; }
+  .lock-screen { position: fixed; inset: 0; background: #111112; display: flex; align-items: center; justify-content: center; z-index: 1000; }
+  .lock-box { text-align: center; padding: 2rem; }
+  .lock-title { font-size: 20px; font-weight: 600; color: #e8e8e4; margin-bottom: 1.5rem; }
+  .lock-input { font-size: 16px; padding: 12px 16px; border-radius: 8px; border: 0.5px solid #2a2a2e; background: #1a1a1c; color: #e8e8e4; text-align: center; width: 220px; font-family: inherit; }
+  .lock-input:focus { outline: none; border-color: #5ba3f5; }
+  .lock-btn { display: block; margin: 12px auto 0; font-size: 14px; padding: 10px 24px; border-radius: 8px; border: none; background: #5ba3f5; color: #111112; font-weight: 600; cursor: pointer; }
+  .lock-btn:hover { background: #7ab5f7; }
+  .lock-error { font-size: 12px; color: #e57373; margin-top: 10px; min-height: 16px; }
   .filter-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
   .chip { font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 20px; cursor: pointer; border: 0.5px solid transparent; opacity: 0.55; transition: opacity 0.15s; }
   .chip.active { opacity: 1; box-shadow: 0 0 0 1.5px currentColor; }
@@ -97,6 +105,15 @@
 </style>
 </head>
 <body>
+<div id="lockScreen" class="lock-screen">
+  <div class="lock-box">
+    <div class="lock-title">🔒 SSPD Leads</div>
+    <input type="password" id="lockInput" class="lock-input" placeholder="Enter passcode" autofocus>
+    <button class="lock-btn" onclick="checkPasscode()">Unlock</button>
+    <div id="lockError" class="lock-error"></div>
+  </div>
+</div>
+<div id="mainContent" style="display:none;">
 <div class="wrap">
 
   <div class="stats" style="grid-template-columns: repeat(5, 1fr);">
@@ -712,6 +729,28 @@ function filterRows() {
     wrap.style.display = (anyFilterActive && visibleRows.length === 0) ? 'none' : '';
   });
 }
+
+function checkPasscode() {
+  const input = document.getElementById('lockInput').value;
+  if (input === '2044') {
+    localStorage.setItem('sspd_unlocked', 'true');
+    document.getElementById('lockScreen').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'block';
+  } else {
+    document.getElementById('lockError').textContent = 'Incorrect passcode';
+    document.getElementById('lockInput').value = '';
+  }
+}
+
+document.getElementById('lockInput').addEventListener('keyup', function(e) {
+  if (e.key === 'Enter') checkPasscode();
+});
+
+if (localStorage.getItem('sspd_unlocked') === 'true') {
+  document.getElementById('lockScreen').style.display = 'none';
+  document.getElementById('mainContent').style.display = 'block';
+}
 </script>
+</div>
 </body>
 </html>
