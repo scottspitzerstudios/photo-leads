@@ -65,6 +65,10 @@
   .collapsible:hover { color: #888; }
   .collapsible span { font-size: 10px; transition: transform 0.15s; display: inline-block; }
   .collapsible.collapsed span { transform: rotate(-90deg); }
+  .email-text { word-break: break-word; }
+  .copy-btn { background: none; border: none; cursor: pointer; font-size: 11px; opacity: 0.5; margin-left: 6px; padding: 2px 4px; border-radius: 4px; vertical-align: middle; }
+  .copy-btn:hover { opacity: 1; background: #252528; }
+  .copy-btn.copied { opacity: 1; }
   .footer { margin-top: 1.5rem; font-size: 11px; color: #333; }
 
   @media (max-width: 950px) {
@@ -151,7 +155,7 @@
           <td data-label="Event"><span class="tag tag-oaks">Oaks</span><span class="event-name">Oddities & Curiosities Expo</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Aug 15–16, 2026</td>
           <td data-label="Contact">Oddities & Curiosities Expo</td>
-          <td data-label="Email">press@oddities.com</td>
+          <td data-label="Email"><span class="email-text">press@oddities.com</span><button class="copy-btn" onclick="copyEmail(this, 'press@oddities.com')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://odditiesandcuriositiesexpo.com/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 18</span></td>
           <td data-label="Notes" class="notes-cell">Halls A, B & D. World's largest traveling oddities event. Taxidermy, dark art, sideshow performers, taxidermy workshops. Visually wild.</td>
@@ -166,7 +170,7 @@
           <td data-label="Event"><span class="tag tag-oaks">Oaks</span><span class="event-name">Montgomery County Black Author & Business Expo</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Aug 22, 2026</td>
           <td data-label="Contact">Ashley Faison, Montgomery County PA</td>
-          <td data-label="Email">Ashley.Faison@MontgomeryCountyPA.gov</td>
+          <td data-label="Email"><span class="email-text">Ashley.Faison@MontgomeryCountyPA.gov</span><button class="copy-btn" onclick="copyEmail(this, 'Ashley.Faison@MontgomeryCountyPA.gov')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://phillyexpocenter.com/events/montgomery-county-black-author-and-business-expo/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-dead">❌ Dead Lead</span></td>
           <td data-label="Notes" class="notes-cell">Hall D. 10am–3pm. Montgomery County PA-sponsored event celebrating Black authors and businesses. Responded — no photography needed.</td>
@@ -175,7 +179,7 @@
           <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">Strategic Starts™ Back to School Leadership Summit</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Aug 27, 2026</td>
           <td data-label="Contact">Kimreneé Patterson, Khanae Institute</td>
-          <td data-label="Email">kpatterson@khanaeinstitute.com</td>
+          <td data-label="Email"><span class="email-text">kpatterson@khanaeinstitute.com</span><button class="copy-btn" onclick="copyEmail(this, 'kpatterson@khanaeinstitute.com')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://www.eventbrite.com/e/strategic-startstm-back-to-school-leadership-summit-2026-tickets-1991576002435" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 18</span></td>
           <td data-label="Notes" class="notes-cell">Friends Center, Philadelphia.</td>
@@ -184,7 +188,7 @@
           <td data-label="Event"><span class="tag tag-oaks">Oaks</span><span class="event-name">Philadelphia Watch Trade Show</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Aug 28–29, 2026</td>
           <td data-label="Contact">Philadelphia Watch Show</td>
-          <td data-label="Email">philadelphiawatchshow@gmail.com</td>
+          <td data-label="Email"><span class="email-text">philadelphiawatchshow@gmail.com</span><button class="copy-btn" onclick="copyEmail(this, 'philadelphiawatchshow@gmail.com')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://www.philadelphiawatchshow.com/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 18</span></td>
           <td data-label="Notes" class="notes-cell">Hall D. 100+ watch dealers. Vintage Rolex, Omega, Patek Philippe, indie microbrands. Buy/sell/trade marketplace.</td>
@@ -202,7 +206,7 @@
           <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">Michael P. Cancro Symposium</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Sep 10, 2026</td>
           <td data-label="Contact">Penn Pathology & Lab Medicine</td>
-          <td data-label="Email">cancro@mail.med.upenn.edu</td>
+          <td data-label="Email"><span class="email-text">cancro@mail.med.upenn.edu</span><button class="copy-btn" onclick="copyEmail(this, 'cancro@mail.med.upenn.edu')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/796064-michael-p-cancro-symposium" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
           <td data-label="Notes" class="notes-cell">Full day tribute symposium for retiring Penn immunology professor. 49 years at Penn. Intimate, warm event — strong photography candidate.</td>
@@ -211,7 +215,7 @@
           <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">TECHSPO Philadelphia 2026</span><span class="added">Added Jul 20</span></td>
           <td data-label="Date">Oct 8–9, 2026</td>
           <td data-label="Contact">TECHSPO LLC</td>
-          <td data-label="Email">info@techspo.co</td>
+          <td data-label="Email"><span class="email-text">info@techspo.co</span><button class="copy-btn" onclick="copyEmail(this, 'info@techspo.co')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://techspophiladelphia.com/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach2">✉️ Outreach x2 Jul 21</span></td>
           <td data-label="Notes" class="notes-cell">Live! Casino & Hotel Philadelphia, 1200 Filbert St. Tech expo — Internet, Mobile, AdTech, MarTech, SaaS. Ph: (800) 805-5385.</td>
@@ -220,7 +224,7 @@
           <td data-label="Event"><span class="tag tag-oaks">Oaks</span><span class="event-name">Retro Con 2026</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Sep 12–13, 2026</td>
           <td data-label="Contact">Screamers Retro Flashbacks</td>
-          <td data-label="Email">screamers85@gmail.com</td>
+          <td data-label="Email"><span class="email-text">screamers85@gmail.com</span><button class="copy-btn" onclick="copyEmail(this, 'screamers85@gmail.com')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://retrocons.com/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 21</span></td>
           <td data-label="Notes" class="notes-cell">Hall A, 67,500 sq ft. 315+ vendor tables. Transformers, Star Wars, TMNT, GI Joe. Celebrity guests, cosplay, arcade games. Sat 10–5:30pm / Sun 9–4pm.</td>
@@ -229,7 +233,7 @@
           <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">2026 BD NOW Innovation Summit</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Sep 14–16, 2026</td>
           <td data-label="Contact">Julie, JRF Consulting Services</td>
-          <td data-label="Email">julie@jrfconsultingservices.com</td>
+          <td data-label="Email"><span class="email-text">julie@jrfconsultingservices.com</span><button class="copy-btn" onclick="copyEmail(this, 'julie@jrfconsultingservices.com')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://www.eventbrite.com/e/2026-bd-now-innovation-summit-registration-1988202066903" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 20</span></td>
           <td data-label="Notes" class="notes-cell">Hyatt Centric Rittenhouse Square. Credit union BD, ~$995/ticket. Intimate event.</td>
@@ -265,7 +269,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">NRPA Annual Conference</span><span class="attendance">👥 8,500</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Sep 24 – Oct 2, 2026</td>
           <td data-label="Contact">Amanda Hersey, NRPA</td>
-          <td data-label="Email">ahersey@nrpa.org</td>
+          <td data-label="Email"><span class="email-text">ahersey@nrpa.org</span><button class="copy-btn" onclick="copyEmail(this, 'ahersey@nrpa.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://conference.nrpa.org/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-booked">🎯 Booked</span></td>
           <td data-label="Notes" class="notes-cell"><span class="revenue">💰 $3,125</span></td>
@@ -275,7 +279,7 @@
           <td data-label="Event"><span class="tag tag-oaks">Oaks</span><span class="event-name">Animate! Philadelphia 2026</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Oct 2–4, 2026</td>
           <td data-label="Contact">GalaxyCon LLC</td>
-          <td data-label="Email">animate@galaxycon.com</td>
+          <td data-label="Email"><span class="email-text">animate@galaxycon.com</span><button class="copy-btn" onclick="copyEmail(this, 'animate@galaxycon.com')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://galaxycon.com/pages/animate-philadelphia" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 22</span></td>
           <td data-label="Notes" class="notes-cell">3-day anime/animation convention. Cosplay contest with $4,000+ in prizes, panels, gaming, celebrity guests. Ph: (954) 231-0574.</td>
@@ -287,7 +291,7 @@
           <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">Symposium for Pathways to Excellence in Medicine</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Oct 3, 2026</td>
           <td data-label="Contact">Julie Premo, Alliance of Minority Physicians</td>
-          <td data-label="Email">premoj@upenn.edu</td>
+          <td data-label="Email"><span class="email-text">premoj@upenn.edu</span><button class="copy-btn" onclick="copyEmail(this, 'premoj@upenn.edu')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/796511-symposium-for-pathways-to-excellence-in-medicine" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 22</span></td>
           <td data-label="Notes" class="notes-cell">9:00am, full day. Med students from Penn, Temple, Jefferson, Drexel, PCOM, Cooper + Penn/CHOP faculty. Research poster forum + workshops. Diverse, community-focused event.</td>
@@ -296,7 +300,7 @@
           <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">Spirituality and Health Symposium</span><span class="added">Added Jul 22</span></td>
           <td data-label="Date">Oct 7, 2026</td>
           <td data-label="Contact">Gerard Jameson</td>
-          <td data-label="Email">gjameson@upenn.edu</td>
+          <td data-label="Email"><span class="email-text">gjameson@upenn.edu</span><button class="copy-btn" onclick="copyEmail(this, 'gjameson@upenn.edu')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/794563-spirituality-and-health-symposium" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 22</span></td>
           <td data-label="Notes" class="notes-cell">Smilow Rubenstein Auditorium & Commons. 8am–2pm.</td>
@@ -305,7 +309,7 @@
           <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">Philly Influencer Mixer Conference 2026</span><span class="added">Added Jul 20</span></td>
           <td data-label="Date">Oct 10, 2026</td>
           <td data-label="Contact">Philly Influencer Mixer</td>
-          <td data-label="Email">info@phillyinfluencermixer.com</td>
+          <td data-label="Email"><span class="email-text">info@phillyinfluencermixer.com</span><button class="copy-btn" onclick="copyEmail(this, 'info@phillyinfluencermixer.com')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://phillyinfluencermixer.com/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 20</span></td>
           <td data-label="Notes" class="notes-cell">Vault XXVII, Philadelphia. Social media/creator conference. Oct 10, 9am.</td>
@@ -314,7 +318,7 @@
           <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">IRM Fall Symposium: Tipping Points — Regeneration, Repair & Fibrosis</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Oct 14, 2026</td>
           <td data-label="Contact">Jay Read / Diona Cashioli, IRM</td>
-          <td data-label="Email">James.Read@pennmedicine.upenn.edu / Diona.Cashioli@pennmedicine.upenn.edu</td>
+          <td data-label="Email"><span class="email-text">James.Read@pennmedicine.upenn.edu / Diona.Cashioli@pennmedicine.upenn.edu</span><button class="copy-btn" onclick="copyEmail(this, 'James.Read@pennmedicine.upenn.edu / Diona.Cashioli@pennmedicine.upenn.edu')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/796110-2026-irm-fall-symposium-tipping-points" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 22</span></td>
           <td data-label="Notes" class="notes-cell">11:00am, Smilow Center for Translational Research. Penn, CHOP & Wistar researchers. Stem cell/regenerative medicine.</td>
@@ -323,7 +327,7 @@
           <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">American Society of Transplant Surgeons</span><span class="added">Added Jul 22</span></td>
           <td data-label="Date">Oct 16–18, 2026</td>
           <td data-label="Contact">Erin Kelly</td>
-          <td data-label="Email">erinkelly1@tmail.com</td>
+          <td data-label="Email"><span class="email-text">erinkelly1@tmail.com</span><button class="copy-btn" onclick="copyEmail(this, 'erinkelly1@tmail.com')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/794232-american-society-of-transplant-surgeons" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach Jul 22</span></td>
           <td data-label="Notes" class="notes-cell">Multi-day conference across Jordan Bldg + South Pavilion. Verify email domain before relying on it (looks like a possible typo).</td>
@@ -332,7 +336,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">LeadingAge Annual Meeting</span><span class="attendance">👥 8,000</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Oct 23 – 29, 2026</td>
           <td data-label="Contact">Sharon Sullivan, LeadingAge</td>
-          <td data-label="Email">ssullivan@leadingage.org</td>
+          <td data-label="Email"><span class="email-text">ssullivan@leadingage.org</span><button class="copy-btn" onclick="copyEmail(this, 'ssullivan@leadingage.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://annualmeeting.leadingage.org/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach2">✉️ Outreach x3 Jul 22</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -341,7 +345,7 @@
           <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">SPINE: Symposium for Postdoctoral Initiatives in Neuroscience Excellence</span><span class="added">Added Jul 22</span></td>
           <td data-label="Date">Oct 28, 2026</td>
           <td data-label="Contact">Jacqueline Fowlkes</td>
-          <td data-label="Email">jfowlkes@pennmedicine.upenn.edu</td>
+          <td data-label="Email"><span class="email-text">jfowlkes@pennmedicine.upenn.edu</span><button class="copy-btn" onclick="copyEmail(this, 'jfowlkes@pennmedicine.upenn.edu')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/797223-symposium-for-postdoctoral-initiatives-in" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell">KRB Gaulton Auditorium. 9:30am–5pm, full day. Annual postdoctoral neuroscience symposium — national talent showcase.</td>
@@ -386,7 +390,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">NCTE Annual Convention</span><span class="attendance">👥 7,000</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Nov 16 – 25, 2026</td>
           <td data-label="Contact">Matt Burruss, NCTE</td>
-          <td data-label="Email">mburruss@ncte.org</td>
+          <td data-label="Email"><span class="email-text">mburruss@ncte.org</span><button class="copy-btn" onclick="copyEmail(this, 'mburruss@ncte.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://ncte.org/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-outreach">✉️ Outreach May 13</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -423,7 +427,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">APTA Combined Sections Meeting</span><span class="attendance">👥 17,500</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Jan 29 – Feb 6, 2027</td>
           <td data-label="Contact">Beth Strelitz, APTA</td>
-          <td data-label="Email">bethstrelitz@apta.org</td>
+          <td data-label="Email"><span class="email-text">bethstrelitz@apta.org</span><button class="copy-btn" onclick="copyEmail(this, 'bethstrelitz@apta.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://csm.apta.org/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -432,7 +436,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">Biophysical Society Annual Meeting</span><span class="attendance">👥 6,000</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Feb 17 – 27, 2027</td>
           <td data-label="Contact">Dorothy Chaconas, Biophysical Society</td>
-          <td data-label="Email">dchaconas@biophysics.org</td>
+          <td data-label="Email"><span class="email-text">dchaconas@biophysics.org</span><button class="copy-btn" onclick="copyEmail(this, 'dchaconas@biophysics.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://www.biophysics.org/upcoming-annual-meetings" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-talks">💬 In Talks</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -441,7 +445,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">ASCE Convention</span><span class="attendance">👥 6,500</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Feb 24 – Mar 6, 2027</td>
           <td data-label="Contact">Candice Hoffman, ASCE</td>
-          <td data-label="Email">choffman@asce.org</td>
+          <td data-label="Email"><span class="email-text">choffman@asce.org</span><button class="copy-btn" onclick="copyEmail(this, 'choffman@asce.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://experience.asce.org/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -459,7 +463,7 @@
           <td data-label="Event"><span class="tag tag-eb">EB</span><span class="event-name">MGP Conference 2027</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Apr 12–14, 2027</td>
           <td data-label="Contact">Ryan Sheaffer, GEI Consultants</td>
-          <td data-label="Email">rsheaffer@geiconsultants.com</td>
+          <td data-label="Email"><span class="email-text">rsheaffer@geiconsultants.com</span><button class="copy-btn" onclick="copyEmail(this, 'rsheaffer@geiconsultants.com')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://mgpconference.com/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell">Loews Philadelphia Hotel. Manufactured Gas Plant / environmental industry conference.</td>
@@ -477,7 +481,7 @@
           <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">MINS Annual Symposium</span><span class="added">Added Jul 22</span></td>
           <td data-label="Date">Apr 20, 2027</td>
           <td data-label="Contact">Jacqueline Fowlkes</td>
-          <td data-label="Email">jfowlkes@pennmedicine.upenn.edu</td>
+          <td data-label="Email"><span class="email-text">jfowlkes@pennmedicine.upenn.edu</span><button class="copy-btn" onclick="copyEmail(this, 'jfowlkes@pennmedicine.upenn.edu')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/797234-mins-annual-symposium" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell">Smilow Center for Translational Research. 8am–5pm, full day. "Save the Date" — details TBD.</td>
@@ -504,7 +508,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">AORN Global Surgical Conference & Expo</span><span class="attendance">👥 7,500</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Apr 6 – 14, 2027</td>
           <td data-label="Contact">Emily O'Connell, AORN</td>
-          <td data-label="Email">eoconnell@aorn.org</td>
+          <td data-label="Email"><span class="email-text">eoconnell@aorn.org</span><button class="copy-btn" onclick="copyEmail(this, 'eoconnell@aorn.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://www.aorn.org/surgical-expo" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -513,7 +517,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">ASGCT Annual Meeting</span><span class="attendance">👥 7,000</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Apr 30 – May 8, 2027</td>
           <td data-label="Contact">Hannah Rice, ASGCT</td>
-          <td data-label="Email">hrice@asgct.org</td>
+          <td data-label="Email"><span class="email-text">hrice@asgct.org</span><button class="copy-btn" onclick="copyEmail(this, 'hrice@asgct.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://www.asgct.org/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -522,7 +526,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">AIA Annual Convention</span><span class="attendance">👥 16,000</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">May 14 – 25, 2027</td>
           <td data-label="Contact">Lauren Liles, AIA</td>
-          <td data-label="Email">laurenliles@aia.org</td>
+          <td data-label="Email"><span class="email-text">laurenliles@aia.org</span><button class="copy-btn" onclick="copyEmail(this, 'laurenliles@aia.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://aia.org/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -531,7 +535,7 @@
           <td data-label="Event"><span class="tag tag-10x">10x</span><span class="event-name">ABA Stonier Graduate School of Banking</span><span class="attendance">👥 500+</span><span class="added">Added Jul 20</span></td>
           <td data-label="Date">Jun 3–10, 2027</td>
           <td data-label="Contact">Perette Bonner, ABA</td>
-          <td data-label="Email">pbonner@aba.com</td>
+          <td data-label="Email"><span class="email-text">pbonner@aba.com</span><button class="copy-btn" onclick="copyEmail(this, 'pbonner@aba.com')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://www.aba.com/training-events/schools/stonier-graduate-school-of-banking" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell">University of Pennsylvania / Wharton. Week-long executive banking program, 90+ year history. Senior bankers from across US + international. Graduation ceremony potential.</td>
@@ -540,7 +544,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">BIO International Convention</span><span class="attendance">👥 16,000</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Jun 1 – 11, 2027</td>
           <td data-label="Contact">Tonia Fykes, BIO</td>
-          <td data-label="Email">fmadrigal@bio.org</td>
+          <td data-label="Email"><span class="email-text">fmadrigal@bio.org</span><button class="copy-btn" onclick="copyEmail(this, 'fmadrigal@bio.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://convention.bio.org/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-talks">💬 In Talks</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -549,7 +553,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">IACP Annual Conference</span><span class="attendance">👥 9,000</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Oct 5 – 15, 2027</td>
           <td data-label="Contact">Sarah Guy, IACP</td>
-          <td data-label="Email">guy@theiacp.org</td>
+          <td data-label="Email"><span class="email-text">guy@theiacp.org</span><button class="copy-btn" onclick="copyEmail(this, 'guy@theiacp.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://www.theiacpconference.org/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -558,7 +562,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">ULI Fall Meeting</span><span class="attendance">👥 6,500</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Oct 15 – 21, 2027</td>
           <td data-label="Contact">Jessica Klapstein, Maritz</td>
-          <td data-label="Email">jessica.klapstein@maritz.com</td>
+          <td data-label="Email"><span class="email-text">jessica.klapstein@maritz.com</span><button class="copy-btn" onclick="copyEmail(this, 'jessica.klapstein@maritz.com')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://fall.uli.org/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -567,7 +571,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">ASRM Annual Meeting</span><span class="attendance">👥 6,500</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Oct 20 – 28, 2027</td>
           <td data-label="Contact">Lee Pearce, ASRM</td>
-          <td data-label="Email">lpearce@asrm.org</td>
+          <td data-label="Email"><span class="email-text">lpearce@asrm.org</span><button class="copy-btn" onclick="copyEmail(this, 'lpearce@asrm.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://www.asrm.org/news-and-events/asrm-scientific-congress-and-expo/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -576,7 +580,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">APHA Annual Meeting</span><span class="attendance">👥 14,000</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Nov 3 – 11, 2027</td>
           <td data-label="Contact">Jolene McNeil, APHA</td>
-          <td data-label="Email">jolene.mcneil@apha.org</td>
+          <td data-label="Email"><span class="email-text">jolene.mcneil@apha.org</span><button class="copy-btn" onclick="copyEmail(this, 'jolene.mcneil@apha.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://www.apha.org/events-and-meetings/annual" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -594,7 +598,7 @@
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">ASCB Annual Meeting</span><span class="attendance">👥 9,000</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Nov 30 – Dec 9, 2027</td>
           <td data-label="Contact">Danielle Raiford, ASCB</td>
-          <td data-label="Email">draiford@ascb.org</td>
+          <td data-label="Email"><span class="email-text">draiford@ascb.org</span><button class="copy-btn" onclick="copyEmail(this, 'draiford@ascb.org')" title="Copy email">📋</button></td>
           <td data-label="Site"><a class="ext" href="https://www.ascb.org/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell"></td>
@@ -606,6 +610,28 @@
   <div class="footer">Scott Spitzer Photography · Photography Leads · Jul 13, 2026</div>
 </div>
 <script>
+function copyEmail(btn, email) {
+  navigator.clipboard.writeText(email).then(() => {
+    const original = btn.textContent;
+    btn.textContent = '✅';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  }).catch(() => {
+    // fallback for older browsers
+    const temp = document.createElement('textarea');
+    temp.value = email;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand('copy');
+    document.body.removeChild(temp);
+    btn.textContent = '✅';
+    setTimeout(() => { btn.textContent = '📋'; }, 1500);
+  });
+}
+
 function toggleSection(year) {
   const table = document.getElementById('table-' + year);
   const header = document.querySelector(`#wrap-${year} .collapsible`);
