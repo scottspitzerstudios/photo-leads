@@ -46,6 +46,9 @@
   .notes-cell { font-size: 11px; color: #555; font-style: italic; }
   .revenue { display: block; font-size: 11px; color: #8bc45a; font-style: normal; font-weight: 600; margin-top: 3px; }
   .search-wrap { margin-bottom: 1rem; }
+  .sticky-controls { position: sticky; top: 0; z-index: 40; background: #111112; padding-top: 10px; padding-bottom: 4px; margin-bottom: 0.5rem; }
+  .sticky-controls .search-wrap { margin-bottom: 10px; }
+  .sticky-controls .filter-chips { margin-bottom: 10px; }
   .search-input { width: 100%; font-size: 14px; padding: 10px 14px; border-radius: 8px; border: 0.5px solid #2a2a2e; background: #1a1a1c; color: #e8e8e4; font-family: inherit; }
   .search-input::placeholder { color: #555; }
   .search-input:focus { outline: none; border-color: #5ba3f5; }
@@ -60,6 +63,10 @@
   .lock-error { font-size: 12px; color: #e57373; margin-top: 10px; min-height: 16px; }
   .lock-toggle { position: fixed; top: 14px; right: 14px; z-index: 50; background: #1a1a1c; border: 0.5px solid #2a2a2e; border-radius: 8px; font-size: 16px; padding: 6px 10px; cursor: pointer; opacity: 0.6; }
   .lock-toggle:hover { opacity: 1; background: #252528; }
+  tr.stale-outreach td { background: rgba(212, 168, 67, 0.06); border-top: 0.5px solid rgba(212, 168, 67, 0.25); border-bottom: 0.5px solid rgba(212, 168, 67, 0.25); }
+  tr.stale-outreach:hover td { background: rgba(212, 168, 67, 0.1); }
+  .stale-flag { font-size: 11px; margin-left: 4px; }
+  tr.stale-outreach { border-left: 3px solid #d4a843; }
   .filter-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
   .chip { font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 20px; cursor: pointer; border: 0.5px solid transparent; opacity: 0.55; transition: opacity 0.15s; }
   .chip.active { opacity: 1; box-shadow: 0 0 0 1.5px currentColor; }
@@ -128,18 +135,20 @@
     <div class="stat"><div class="stat-num" style="color:#8bc45a;">$4,125</div><div class="stat-label">💰 Revenue Booked</div></div>
   </div>
 
-  <div class="search-wrap">
-    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search events, contacts, tags..." oninput="filterRows()">
-  </div>
+  <div class="sticky-controls">
+    <div class="search-wrap">
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search events, contacts, tags..." oninput="filterRows()">
+    </div>
 
-  <div class="filter-chips" id="filterChips">
-    <button class="chip chip-cvb" onclick="toggleTagFilter('CVB', this)">CVB</button>
-    <button class="chip chip-eb" onclick="toggleTagFilter('EB', this)">EB</button>
-    <button class="chip chip-ac" onclick="toggleTagFilter('AC', this)">AC</button>
-    <button class="chip chip-kop" onclick="toggleTagFilter('KoP', this)">KoP</button>
-    <button class="chip chip-10x" onclick="toggleTagFilter('10x', this)">10x</button>
-    <button class="chip chip-pennmed" onclick="toggleTagFilter('PennMed', this)">PennMed</button>
-    <button class="chip chip-oaks" onclick="toggleTagFilter('Oaks', this)">Oaks</button>
+    <div class="filter-chips" id="filterChips">
+      <button class="chip chip-cvb" onclick="toggleTagFilter('CVB', this)">CVB</button>
+      <button class="chip chip-eb" onclick="toggleTagFilter('EB', this)">EB</button>
+      <button class="chip chip-ac" onclick="toggleTagFilter('AC', this)">AC</button>
+      <button class="chip chip-kop" onclick="toggleTagFilter('KoP', this)">KoP</button>
+      <button class="chip chip-10x" onclick="toggleTagFilter('10x', this)">10x</button>
+      <button class="chip chip-pennmed" onclick="toggleTagFilter('PennMed', this)">PennMed</button>
+      <button class="chip chip-oaks" onclick="toggleTagFilter('Oaks', this)">Oaks</button>
+    </div>
   </div>
 
   <!-- 2026 -->
@@ -733,6 +742,33 @@ function filterRows() {
     wrap.style.display = (anyFilterActive && visibleRows.length === 0) ? 'none' : '';
   });
 }
+
+function flagStaleOutreach() {
+  const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+  const today = new Date();
+  const rows = document.querySelectorAll('table tbody tr');
+  rows.forEach(row => {
+    const badge = row.querySelector('.badge-outreach, .badge-outreach2');
+    if (!badge) return;
+    const match = badge.textContent.match(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d+)/);
+    if (!match) return;
+    let outreachDate = new Date(today.getFullYear(), months[match[1]], parseInt(match[2]));
+    // handle year rollover (e.g. outreach was in Dec, now it's Jan)
+    if (outreachDate > today) outreachDate.setFullYear(today.getFullYear() - 1);
+    const daysAgo = Math.floor((today - outreachDate) / (1000 * 60 * 60 * 24));
+    if (daysAgo >= 21) {
+      row.classList.add('stale-outreach');
+      if (!badge.querySelector('.stale-flag')) {
+        const flag = document.createElement('span');
+        flag.className = 'stale-flag';
+        flag.title = `${daysAgo} days since outreach — consider following up`;
+        flag.textContent = '⏰';
+        badge.appendChild(flag);
+      }
+    }
+  });
+}
+flagStaleOutreach();
 
 function lockNow() {
   localStorage.removeItem('sspd_unlocked');
