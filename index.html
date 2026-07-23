@@ -45,6 +45,11 @@
   a.ext:hover { text-decoration: underline; }
   .notes-cell { font-size: 11px; color: #555; font-style: italic; }
   .revenue { display: block; font-size: 11px; color: #8bc45a; font-style: normal; font-weight: 600; margin-top: 3px; }
+  .search-wrap { margin-bottom: 1rem; }
+  .search-input { width: 100%; font-size: 14px; padding: 10px 14px; border-radius: 8px; border: 0.5px solid #2a2a2e; background: #1a1a1c; color: #e8e8e4; font-family: inherit; }
+  .search-input::placeholder { color: #555; }
+  .search-input:focus { outline: none; border-color: #5ba3f5; }
+  .row-hidden { display: none !important; }
   .footer { margin-top: 1.5rem; font-size: 11px; color: #333; }
 
   @media (max-width: 950px) {
@@ -81,6 +86,10 @@
     <div class="stat"><div class="stat-num">20</div><div class="stat-label">✉️ Outreach Sent</div></div>
     <div class="stat"><div class="stat-num">3</div><div class="stat-label">💬 In Talks</div></div>
     <div class="stat"><div class="stat-num" style="color:#8bc45a;">$4,125</div><div class="stat-label">💰 Revenue Booked</div></div>
+  </div>
+
+  <div class="search-wrap">
+    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search events, contacts, tags..." oninput="filterRows()">
   </div>
 
   <!-- 2026 -->
@@ -566,5 +575,24 @@
 
   <div class="footer">Scott Spitzer Photography · Photography Leads · Jul 13, 2026</div>
 </div>
+<script>
+function filterRows() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const rows = document.querySelectorAll('table tbody tr');
+  rows.forEach(row => {
+    const text = row.textContent.toLowerCase();
+    if (query === '' || text.includes(query)) {
+      row.classList.remove('row-hidden');
+    } else {
+      row.classList.add('row-hidden');
+    }
+  });
+  // Hide entire section (table-wrap) if all its rows are hidden
+  document.querySelectorAll('.table-wrap').forEach(wrap => {
+    const visibleRows = wrap.querySelectorAll('tbody tr:not(.row-hidden)');
+    wrap.style.display = (query !== '' && visibleRows.length === 0) ? 'none' : '';
+  });
+}
+</script>
 </body>
 </html>
