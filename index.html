@@ -50,6 +50,17 @@
   .search-input::placeholder { color: #555; }
   .search-input:focus { outline: none; border-color: #5ba3f5; }
   .row-hidden { display: none !important; }
+  .filter-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
+  .chip { font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 20px; cursor: pointer; border: 0.5px solid transparent; opacity: 0.55; transition: opacity 0.15s; }
+  .chip.active { opacity: 1; box-shadow: 0 0 0 1.5px currentColor; }
+  .chip-cvb     { background: #2e2200; color: #d4a843; }
+  .chip-eb      { background: #0d2a4a; color: #5ba3f5; }
+  .chip-web     { background: #0d2e1a; color: #5bc47a; }
+  .chip-ac      { background: #1a0d0d; color: #e07a5f; }
+  .chip-kop     { background: #0d1a2e; color: #5a9ec4; }
+  .chip-10x     { background: #1a0d2e; color: #c07ae0; }
+  .chip-pennmed { background: #0d2e2e; color: #5bc4c4; }
+  .chip-oaks    { background: #1e1a0d; color: #c4b45a; }
   .footer { margin-top: 1.5rem; font-size: 11px; color: #333; }
 
   @media (max-width: 950px) {
@@ -90,6 +101,17 @@
 
   <div class="search-wrap">
     <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search events, contacts, tags..." oninput="filterRows()">
+  </div>
+
+  <div class="filter-chips" id="filterChips">
+    <button class="chip chip-cvb" onclick="toggleTagFilter('CVB', this)">CVB</button>
+    <button class="chip chip-eb" onclick="toggleTagFilter('EB', this)">EB</button>
+    <button class="chip chip-web" onclick="toggleTagFilter('Web', this)">Web</button>
+    <button class="chip chip-ac" onclick="toggleTagFilter('AC', this)">AC</button>
+    <button class="chip chip-kop" onclick="toggleTagFilter('KoP', this)">KoP</button>
+    <button class="chip chip-10x" onclick="toggleTagFilter('10x', this)">10x</button>
+    <button class="chip chip-pennmed" onclick="toggleTagFilter('PennMed', this)">PennMed</button>
+    <button class="chip chip-oaks" onclick="toggleTagFilter('Oaks', this)">Oaks</button>
   </div>
 
   <!-- 2026 -->
@@ -576,21 +598,39 @@
   <div class="footer">Scott Spitzer Photography · Photography Leads · Jul 13, 2026</div>
 </div>
 <script>
+let activeTag = null;
+
+function toggleTagFilter(tag, btn) {
+  const wasActive = btn.classList.contains('active');
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  if (wasActive) {
+    activeTag = null;
+  } else {
+    activeTag = tag;
+    btn.classList.add('active');
+  }
+  filterRows();
+}
+
 function filterRows() {
   const query = document.getElementById('searchInput').value.toLowerCase().trim();
   const rows = document.querySelectorAll('table tbody tr');
   rows.forEach(row => {
     const text = row.textContent.toLowerCase();
-    if (query === '' || text.includes(query)) {
+    const matchesSearch = query === '' || text.includes(query);
+    const tagSpan = row.querySelector('.tag');
+    const rowTag = tagSpan ? tagSpan.textContent.trim() : '';
+    const matchesTag = activeTag === null || rowTag === activeTag;
+    if (matchesSearch && matchesTag) {
       row.classList.remove('row-hidden');
     } else {
       row.classList.add('row-hidden');
     }
   });
-  // Hide entire section (table-wrap) if all its rows are hidden
   document.querySelectorAll('.table-wrap').forEach(wrap => {
     const visibleRows = wrap.querySelectorAll('tbody tr:not(.row-hidden)');
-    wrap.style.display = (query !== '' && visibleRows.length === 0) ? 'none' : '';
+    const anyFilterActive = query !== '' || activeTag !== null;
+    wrap.style.display = (anyFilterActive && visibleRows.length === 0) ? 'none' : '';
   });
 }
 </script>
