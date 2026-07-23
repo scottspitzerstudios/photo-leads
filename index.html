@@ -61,6 +61,10 @@
   .chip-10x     { background: #1a0d2e; color: #c07ae0; }
   .chip-pennmed { background: #0d2e2e; color: #5bc4c4; }
   .chip-oaks    { background: #1e1a0d; color: #c4b45a; }
+  .collapsible { cursor: pointer; user-select: none; display: flex; align-items: center; gap: 6px; }
+  .collapsible:hover { color: #888; }
+  .collapsible span { font-size: 10px; transition: transform 0.15s; display: inline-block; }
+  .collapsible.collapsed span { transform: rotate(-90deg); }
   .footer { margin-top: 1.5rem; font-size: 11px; color: #333; }
 
   @media (max-width: 950px) {
@@ -106,7 +110,6 @@
   <div class="filter-chips" id="filterChips">
     <button class="chip chip-cvb" onclick="toggleTagFilter('CVB', this)">CVB</button>
     <button class="chip chip-eb" onclick="toggleTagFilter('EB', this)">EB</button>
-    <button class="chip chip-web" onclick="toggleTagFilter('Web', this)">Web</button>
     <button class="chip chip-ac" onclick="toggleTagFilter('AC', this)">AC</button>
     <button class="chip chip-kop" onclick="toggleTagFilter('KoP', this)">KoP</button>
     <button class="chip chip-10x" onclick="toggleTagFilter('10x', this)">10x</button>
@@ -115,9 +118,11 @@
   </div>
 
   <!-- 2026 -->
-  <div class="table-wrap">
-    <div class="section-header">2026 — 27 events</div>
-    <table>
+  <div class="table-wrap" id="wrap-2026">
+    <div class="section-header collapsible" onclick="toggleSection('2026')">
+      <span id="chevron-2026">▾</span> 2026 — 27 events
+    </div>
+    <table id="table-2026">
       <thead><tr>
         <th style="width:24%">Event</th>
         <th style="width:14%">Date</th>
@@ -399,8 +404,11 @@
     </table>
   </div>
 
-  <div class="section-header">2027 — 20 events</div>
-    <table>
+  <div class="table-wrap" id="wrap-2027">
+    <div class="section-header collapsible" onclick="toggleSection('2027')">
+      <span id="chevron-2027">▾</span> 2027 — 20 events
+    </div>
+    <table id="table-2027">
       <thead><tr>
         <th style="width:24%">Event</th>
         <th style="width:14%">Date</th>
@@ -598,6 +606,14 @@
   <div class="footer">Scott Spitzer Photography · Photography Leads · Jul 13, 2026</div>
 </div>
 <script>
+function toggleSection(year) {
+  const table = document.getElementById('table-' + year);
+  const header = document.querySelector(`#wrap-${year} .collapsible`);
+  const isHidden = table.style.display === 'none';
+  table.style.display = isHidden ? '' : 'none';
+  header.classList.toggle('collapsed', !isHidden);
+}
+
 let activeTag = null;
 
 function toggleTagFilter(tag, btn) {
