@@ -756,8 +756,11 @@ function flagStaleOutreach() {
     const match = badge.textContent.match(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d+)/);
     if (!match) return;
     let outreachDate = new Date(today.getFullYear(), months[match[1]], parseInt(match[2]));
-    // handle year rollover (e.g. outreach was in Dec, now it's Jan)
-    if (outreachDate > today) outreachDate.setFullYear(today.getFullYear() - 1);
+    // Only roll back a year if the date is FAR in the future (>60 days) — that indicates
+    // it's actually from the previous calendar year (e.g. outreach in Dec, now it's Feb).
+    // Near-future dates (a few days ahead) are legitimately scheduled outreach, not stale.
+    const daysUntil = (outreachDate - today) / (1000 * 60 * 60 * 24);
+    if (daysUntil > 60) outreachDate.setFullYear(today.getFullYear() - 1);
     const daysAgo = Math.floor((today - outreachDate) / (1000 * 60 * 60 * 24));
     if (daysAgo >= 21) {
       row.classList.add('stale-outreach');
