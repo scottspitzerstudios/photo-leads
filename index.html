@@ -129,12 +129,13 @@
 
   <button id="lockBtn" class="lock-toggle" onclick="lockNow()" title="Lock dashboard">🔓</button>
 
-  <div class="stats" style="grid-template-columns: repeat(5, 1fr);">
+  <div class="stats" style="grid-template-columns: repeat(6, 1fr);">
     <div class="stat"><div class="stat-num">56</div><div class="stat-label">Total Leads</div></div>
     <div class="stat"><div class="stat-num">3</div><div class="stat-label">🎯 Booked</div></div>
     <div class="stat"><div class="stat-num">23</div><div class="stat-label">✉️ Outreach Sent</div></div>
     <div class="stat"><div class="stat-num">3</div><div class="stat-label">💬 In Talks</div></div>
     <div class="stat"><div class="stat-num" style="color:#8bc45a;">$4,125</div><div class="stat-label">💰 Revenue Booked</div></div>
+    <div class="stat"><div class="stat-num" id="s-uncontacted" style="color:#e57373;">0</div><div class="stat-label">📋 Not Contacted (12mo)</div></div>
   </div>
 
   <div class="sticky-controls">
@@ -829,6 +830,35 @@ function flagStaleOutreach() {
   });
 }
 flagStaleOutreach();
+
+function countUncontactedWithinYear() {
+  const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+  const today = new Date();
+  const oneYearOut = new Date(today);
+  oneYearOut.setFullYear(today.getFullYear() + 1);
+
+  let count = 0;
+  const rows = document.querySelectorAll('table tbody tr');
+  rows.forEach(row => {
+    const badge = row.querySelector('.badge-new');
+    if (!badge) return; // only count "New" (not-yet-contacted) status
+
+    const dateCell = row.querySelector('td[data-label="Date"]');
+    if (!dateCell) return;
+    // Parse the FIRST date found in the cell (handles ranges like "Aug 5 – 9, 2026")
+    const match = dateCell.textContent.match(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\s+(\d+)(?:.*?)(\d{4})/);
+    if (!match) return;
+    const eventDate = new Date(parseInt(match[3]), months[match[1]], parseInt(match[2]));
+
+    if (eventDate >= today && eventDate <= oneYearOut) {
+      count++;
+    }
+  });
+
+  const el = document.getElementById('s-uncontacted');
+  if (el) el.textContent = count;
+}
+countUncontactedWithinYear();
 
 function lockNow() {
   localStorage.removeItem('sspd_unlocked');
