@@ -28,7 +28,6 @@
   .tag-kop { background: #0d1a2e; color: #5a9ec4; }
   .tag-wisdom { background: #2e1a0d; color: #c4915a; }
   .tag-10x     { background: #1a0d2e; color: #c07ae0; }
-  .tag-pennmed { background: #0d2e2e; color: #5bc4c4; }
   .tag-oaks    { background: #1e1a0d; color: #c4b45a; }
   .event-name { font-weight: 500; color: #e8e8e4; }
   .attendance { font-size: 10px; color: #555; display: block; margin-top: 1px; }
@@ -78,7 +77,6 @@
   .chip-ac      { background: #1a0d0d; color: #e07a5f; }
   .chip-kop     { background: #0d1a2e; color: #5a9ec4; }
   .chip-10x     { background: #1a0d2e; color: #c07ae0; }
-  .chip-pennmed { background: #0d2e2e; color: #5bc4c4; }
   .chip-oaks    { background: #1e1a0d; color: #c4b45a; }
   .collapsible { cursor: pointer; user-select: none; display: flex; align-items: center; gap: 6px; }
   .collapsible:hover { color: #888; }
@@ -130,8 +128,8 @@
   <button id="lockBtn" class="lock-toggle" onclick="lockNow()" title="Lock dashboard">🔓</button>
 
   <div class="stats" style="grid-template-columns: repeat(6, 1fr);">
-    <div class="stat"><div class="stat-num">52</div><div class="stat-label">Total Leads</div></div>
-    <div class="stat"><div class="stat-num">7</div><div class="stat-label">🎯 Booked</div></div>
+    <div class="stat"><div class="stat-num">49</div><div class="stat-label">Total Leads</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">🎯 Booked</div></div>
     <div class="stat"><div class="stat-num">5</div><div class="stat-label">✉️ Outreach Sent</div></div>
     <div class="stat"><div class="stat-num">2</div><div class="stat-label">💬 In Talks</div></div>
     <div class="stat"><div class="stat-num" style="color:#8bc45a;">$15,975</div><div class="stat-label">💰 Revenue Booked</div></div>
@@ -150,7 +148,6 @@
       <button class="chip chip-ac" onclick="toggleTagFilter('AC', this)">AC</button>
       <button class="chip chip-kop" onclick="toggleTagFilter('KoP', this)">KoP</button>
       <button class="chip chip-10x" onclick="toggleTagFilter('10x', this)">10x</button>
-      <button class="chip chip-pennmed" onclick="toggleTagFilter('PennMed', this)">PennMed</button>
       <button class="chip chip-oaks" onclick="toggleTagFilter('Oaks', this)">Oaks</button>
     </div>
   </div>
@@ -223,15 +220,6 @@
         
         <tr>
         <tr>
-        <tr>
-          <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">2026 ITMAT Symposium (21st Annual)</span><span class="added">Added Sep 9</span></td>
-          <td data-label="Date">Oct 5, 2026</td>
-          <td data-label="Contact">ITMAT Education</td>
-          <td data-label="Email"><span class="email-text">itmated@pennmedicine.upenn.edu</span><button class="copy-btn" onclick="copyEmail(this, 'itmated@pennmedicine.upenn.edu')" title="Copy email">📋</button></td>
-          <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/rnainnovation/event/798976-2026-itmat-symposium-celebrating-20-years-of" target="_blank">↗</a></td>
-          <td data-label="Status"><span class="badge badge-booked">🎯 Booked</span></td>
-          <td data-label="Notes" class="notes-cell">Smilow Center, Rubenstein Auditorium. "20 Years of Translational Therapeutics at PENN and CHOP" — open to the public, reception included. Scott is their regular photographer.</td>
-        </tr>
         <tr>
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">LeadingAge Annual Meeting</span><span class="attendance">👥 8,000</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Oct 23 – 29, 2026</td>
@@ -405,15 +393,6 @@
           <td data-label="Notes" class="notes-cell">Philadelphia Marriott Downtown. Annual ophthalmology CME conference.</td>
         </tr>
         <tr>
-          <td data-label="Event"><span class="tag tag-pennmed">PennMed</span><span class="event-name">MINS Annual Symposium</span><span class="added">Added Jul 22</span></td>
-          <td data-label="Date">Apr 20, 2027</td>
-          <td data-label="Contact">Jacqueline Fowlkes</td>
-          <td data-label="Email"><span class="email-text">jfowlkes@pennmedicine.upenn.edu</span><button class="copy-btn" onclick="copyEmail(this, 'jfowlkes@pennmedicine.upenn.edu')" title="Copy email">📋</button></td>
-          <td data-label="Site"><a class="ext" href="https://events.med.upenn.edu/event/797234-mins-annual-symposium" target="_blank">↗</a></td>
-          <td data-label="Status"><span class="badge badge-new">New</span></td>
-          <td data-label="Notes" class="notes-cell">Smilow Center for Translational Research. 8am–5pm, full day. "Save the Date" — details TBD.</td>
-        </tr>
-        <tr>
           <td data-label="Event"><span class="tag tag-10x">10x</span><span class="event-name">Annual Philadelphia Sleep Conference</span><span class="attendance">👥 200</span><span class="added">Added Jul 13</span></td>
           <td data-label="Date">Mar 19, 2027</td>
           <td data-label="Contact">Breakaway Media LLC</td>
@@ -475,15 +454,6 @@
           <td data-label="Site"><a class="ext" href="https://annualmeeting.acha.org/" target="_blank">↗</a></td>
           <td data-label="Status"><span class="badge badge-new">New</span></td>
           <td data-label="Notes" class="notes-cell">Philadelphia Marriott Downtown. 1,900+ attendees, 80+ exhibitors. No named staff contact found — education@acha.org handles annual meeting questions; exhibits@acha.org for exhibiting/sponsorship. Phone (410) 859-1500.</td>
-        </tr>
-        <tr>
-          <td data-label="Event"><span class="tag tag-10x">10x</span><span class="event-name">ABA Stonier Graduate School of Banking</span><span class="attendance">👥 500+</span><span class="added">Added Jul 20</span></td>
-          <td data-label="Date">Jun 3–10, 2027</td>
-          <td data-label="Contact">Perette Bonner, ABA</td>
-          <td data-label="Email"><span class="email-text">pbonner@aba.com</span><button class="copy-btn" onclick="copyEmail(this, 'pbonner@aba.com')" title="Copy email">📋</button></td>
-          <td data-label="Site"><a class="ext" href="https://www.aba.com/training-events/schools/stonier-graduate-school-of-banking" target="_blank">↗</a></td>
-          <td data-label="Status"><span class="badge badge-new">New</span></td>
-          <td data-label="Notes" class="notes-cell">University of Pennsylvania / Wharton. Week-long executive banking program, 90+ year history. Senior bankers from across US + international. Graduation ceremony potential.</td>
         </tr>
         <tr>
           <td data-label="Event"><span class="tag tag-cvb">CVB</span><span class="event-name">BIO International Convention</span><span class="attendance">👥 16,000</span><span class="added">Added Jul 13</span></td>
